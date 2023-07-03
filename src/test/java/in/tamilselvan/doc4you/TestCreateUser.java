@@ -51,9 +51,9 @@ public class TestCreateUser {
 		newUser.setActive(true);
 
 		Exception exception = assertThrows(Exception.class, () -> {
-			userService.create(null);
+			userService.create(newUser);
 		});
-		String exceptedMessage = "User cannot be null";
+		String exceptedMessage = "Email cannot be null";
 		String actualMessage = exception.getMessage();
 		assertTrue(exceptedMessage.equals(actualMessage));
 	}

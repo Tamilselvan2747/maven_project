@@ -9,14 +9,15 @@ public class UserValidator {
 		if (user == null) {
 			throw new IllegalArgumentException("invaild user input");
 		}
-		if ("".equals(user.getEmail().trim())) {
-			throw new Exception("User cannot be null");
+		
+		if ( user.getEmail() == null ||"".equals(user.getEmail().trim()) ) {
+			throw new Exception("Email cannot be null");
 
 		}
-		if (" ".equals(user.getPassword().trim())) {
+		if ("".equals(user.getPassword().trim())) {
 			throw new Exception("User cannot be null");
 		}
-		if (" ".equals(user.getFirstName().trim())) {
+		if ("".equals(user.getFirstName().trim())) {
 			throw new Exception("User cannot be null");
 		}
 	}
