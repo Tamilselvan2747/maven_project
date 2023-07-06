@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.tamilselvan.doc4you.TestCreateUser" time="0" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.tamilselvan.doc4you.TestCreateTask" time="0.107" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,10 +58,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithVaildata" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithInvalidataInput" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithPasswordNull" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithPasswordEmpty" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithEmailNull" classname="in.tamilselvan.doc4you.TestCreateUser" time="0"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateIsPast" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.082"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateFormat" classname="in.tamilselvan.doc4you.TestCreateTask" time="0"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateInValid" classname="in.tamilselvan.doc4you.TestCreateTask" time="0"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskNameEmpty" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateEmpty" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.008"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithInvalidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.002"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskNameNull" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateNull" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
 </testsuite>

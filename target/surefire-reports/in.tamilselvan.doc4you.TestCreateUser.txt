@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: in.tamilselvan.doc4you.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! - in in.tamilselvan.doc4you.TestCreateUser
-in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithEmailNull()  Time elapsed: 0.033 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.tamilselvan.doc4you.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:58)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in in.tamilselvan.doc4you.TestCreateUser

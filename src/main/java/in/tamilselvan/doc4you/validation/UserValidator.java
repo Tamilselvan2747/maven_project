@@ -1,28 +1,27 @@
 package in.tamilselvan.doc4you.validation;
 
+import in.tamilselvan.doc4you.exception.ValidationException;
 import in.tamilselvan.doc4you.model.User;
+import in.tamilselvan.doc4you.util.StringUtil;
 
 public class UserValidator {
 
-	public static void validate(User user) throws Exception {
+	public static void validate(User user) throws ValidationException {
 
 		if (user == null) {
-			throw new IllegalArgumentException("invaild user input");
+			throw new ValidationException("invaild user input");
 		}
 
-		if (user.getEmail() == null || "".equals(user.getEmail().trim())) {
-			throw new Exception("Email cannot be null or empty");
 
-		}
-		if (user.getPassword() == null || "".equals(user.getPassword().trim())) {
-			throw new Exception("password cannot be null or empty");
-		}
-		if (user.getFirstName() == null || "".equals(user.getFirstName().trim())) {
-			throw new Exception("first name cannot be null or empty");
-		}
-		if(user.getLastName() == null || "".equals(user.getLastName().trim())) {
-			throw new Exception("lastname cannot be null or empty");
-		}
+		
+		 StringUtil.rejectIfInvalidString(user.getEmail(), "Email");
+//	        StringUtil.isValid(user.getEmail()); // Add appropriate validation logic here
+
+	        StringUtil.rejectIfInvalidString(user.getPassword(), "Password");
+//	        StringUtil.isValid(user.getPassword()); // Add appropriate validation logic here
+
+	        StringUtil.rejectIfInvalidString(user.getFirstName(), "First Name");
+	        StringUtil.rejectIfInvalidString(user.getLastName(), "Last Name");
 	}
 
 }
