@@ -6,66 +6,57 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class ConnectionUtil {
+
 	public static Connection getConnection() {
-
 		Connection connection = null;
-		String url = null;
-		String userName = null;
-		String password = null;
-
+		
+		Dotenv env = Dotenv.load();
+		
+		String url = env.get("DATABASE_HOST");
+		String userName = env.get("DATABASE_USERNAME");
+		String password = env.get("DATABASE_PASSWORDT");
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(
-			  "jdbc:mysql://aws.connect.psdb.cloud/doc4you?sslMode=VERIFY_IDENTITY",
-			  "gj6yin9rosbrstcrx20n",
-			  "pscale_pw_CNAn9fiF0r612hiF8nQLKklAfWUxKTLpFhtbIeyxKqe");
+			 connection = DriverManager.getConnection(url, userName, password);
 
-
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-
 		}
 		return connection;
-
 	}
-
+	
 	public static void close(Connection connection, PreparedStatement ps) {
-
 		try {
-			if (ps != null) {
+			if(ps != null) {
 				ps.close();
 			}
-			if (connection != null) {
+			if(connection != null) {
 				connection.close();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-
 		}
-
 	}
-
+	
 	public static void close(Connection connection, PreparedStatement ps, ResultSet rs) {
-
 		try {
-			if (rs != null) {
-
+			if(rs != null) {
 				rs.close();
 			}
-			if (ps != null) {
+			if(ps != null) {
 				ps.close();
 			}
-			if (connection != null) {
+			if(connection != null) {
 				connection.close();
 			}
-
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
-
 	}
-
+	
 }

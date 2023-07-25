@@ -12,20 +12,17 @@ import in.tamilselvan.doc4you.model.User;
 import in.tamilselvan.doc4you.util.ConnectionUtil;
 
 public class UserDAO implements UserInterface {
-
+	@Override
 	public Set<User> findAll() throws RuntimeException {
-
-
-		Connection con = null;
+		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Set<User> userList = new HashSet<>();
-
 		try {
-			String query = "select * from users where isActive = 1";
-			con = ConnectionUtil.getConnection();
-			ps = con.prepareStatement(query);
-			rs = ps.executeQuery();
+			String query = "SELECT * FROM user WHERE is_active = 1";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+			// rs = ps.executeQuery();
 			while (rs.next()) {
 				User user = new User();
 				user.setId(rs.getInt("id"));
@@ -34,59 +31,119 @@ public class UserDAO implements UserInterface {
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				user.setActive(rs.getBoolean("is_active"));
-
 				userList.add(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			e.getMessage();
+			System.out.println(e.getMessage());
 			throw new RuntimeException();
-
 		} finally {
-			ConnectionUtil.close(con, ps, rs);
+			ConnectionUtil.close(conn, ps, rs);
 		}
 		return userList;
 	}
 
-	/**
-	 * 
-	 * @param newUser
-	 */
+	@Override
+	public User findById(int userId) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User user = null;
+
+		try {
+			String query = "SELECT * FROM user WHERE id = 1 AND id = ?";
+			conn = ConnectionUtil.getConnection();
+			ps = conn.prepareStatement(query);
+
+			ps.setInt(1, userId);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setActive(rs.getBoolean("is_active"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(conn, ps, rs);
+		}
+		return user;
+	}
+
 	@Override
 	public void create(User newUser) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+        try {
+        	String query = "INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+        	conn = ConnectionUtil.getConnection();
+        	ps = conn.prepareStatement(query); 
+        	
+        	ps.setString(1, newUser.getFirstName());
+        	ps.setString(2, newUser.getLastName());
+        	ps.setString(3, newUser.getEmail());
+        	ps.setString(4, newUser.getPassword());
+        	
+        	ps.executeUpdate();
+        	
+        	System.out.println("User has been created Successfully!");
+        	
+        } catch (Exception e) {
+        	e.printStackTrace();
+            System.out.println(e.getMessage());
+            throw new RuntimeException();
+        } finally {
+        	ConnectionUtil.close(conn, ps);
+        }
+	}
 
-		Set<User> arr = UserList.listOfUsers;
-
-		arr.add(newUser);
+	@Override
+	public void update(User updatedUser) {
+          Connection conn = null;
+          PreparedStatement ps = null;
+          ResultSet rs = null;
+          
+       try {
+        String query = "";
+      	conn = ConnectionUtil.getConnection();
+      	ps = conn.prepareStatement(query); 
+      	
+      	ps.setString(1, updatedUser.getFirstName());
+      	ps.setString(2, updatedUser.getLastName());
+      	ps.setString(3, updatedUser.getPassword());
+      	ps.setInt(4, updatedUser.getId());
+      	
+      	ps.executeUpdate();
+      	
+      	System.out.println("User has been updated Successfully!");
+      	
+      } catch (Exception e) {
+      	e.printStackTrace();
+          System.out.println(e.getMessage());
+          throw new RuntimeException();
+      } finally {
+      	ConnectionUtil.close(conn, ps);
+      }
 
 	}
 
 	@Override
-	public void update(int id, User updateUser) {
-
-		Set<User> arr = UserList.listOfUsers;
-		for (User name : arr) {
-
-			User user = name;
-
-			if (user.getId() == id) {
-				user.setFirstName(updateUser.getFirstName());
-				user.setLastName(updateUser.getLastName());
-				user.setPassword(updateUser.getPassword());
-				break;
+	public void delete(int userId) {
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
+			if (user == null) {
+				continue;
 			}
-		}
-	}
-
-	@Override
-	public void delete(int id) {
-		Set<User> arr = UserList.listOfUsers;
-
-		for (User name : arr) {
-
-			User user = name;
-
-			if (user.getId() == id) {
+			if (user.getId() == userId) {
 				user.setActive(false);
 				break;
 			}
@@ -94,42 +151,38 @@ public class UserDAO implements UserInterface {
 	}
 
 	@Override
-	public User findById(int userId) {
+	public void create() {
+		// TODO Auto-generated method stub
 
-		Set<User> userlist = UserList.listOfUsers;
+	}
 
-		User userMatch = null;
-		for (User name : userlist) {
+	@Override
+	public void update() {
+		// TODO Auto-generated metho
+	}
 
-			User user = name;
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
 
-			if (user.getId() == userId) {
-				userMatch = user;
-				break;
-			}
-		}
-		return userMatch;
 	}
 
 	@Override
 	public User findByEmailId(String email) {
-
-		Set<User> arr = UserList.listOfUsers;
-		User userMatch = null;
-		for (User name : arr) {
-			User user = name;
-			if (user.getEmail() == email) {
-				userMatch = user;
-				break;
-			}
-		}
-		return userMatch;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public int count() {
-		Set<User> userList = UserList.listOfUsers;
-		return userList.size();
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void update(int id, User updateUser) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -143,7 +196,5 @@ public class UserDAO implements UserInterface {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
 
 }

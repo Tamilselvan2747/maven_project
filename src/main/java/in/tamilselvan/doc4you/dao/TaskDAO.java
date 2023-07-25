@@ -8,66 +8,20 @@ import in.tamilselvan.doc4you.interfaces.TaskInterface;
 
 public class TaskDAO implements TaskInterface {
 
-	public Set<Task> findAll() {
-
-		Set<Task> taskList = TaskList.listOfTasks;
-
-		return taskList;
-	}
-
 	@Override
 	public void create(Task newTask) {
-
-		Set<Task> list = TaskList.listOfTasks;
-
-		list.add(newTask);
-	}
-
-	@Override
-	public void update(int id, Task updateTask) {
-
-		Set<Task> list = TaskList.listOfTasks;
-
-		for (Task name : list) {
-
-			Task task = name;
-
-			if (task.getId() == id) {
-				task.setName(updateTask.getName());
-				task.setDueDate(updateTask.getDueDate());
-				break;
-			}
-		}
-	}
-
-	@Override
-	public void delete(int id) {
-
-		Set<Task> list = TaskList.listOfTasks;
-
-		for (Task name : list) {
-
-			Task task = name;
-
-			if (task.getId() == id) {
-				task.setActive(false);
-				break;
-			}
-		}
-	}
-
-	@Override
-	public Task findById(int taskId) {
-
 		Set<Task> taskList = TaskList.listOfTasks;
+		taskList.add(newTask);
+		
+	}
 
+	@Override
+	public Task findById(int id) {
+		Set<Task> taskList = TaskList.listOfTasks;
 		Task taskMatch = null;
 
-		for (Task name : taskList) {
-
-			Task task = name;
-
-			if (task.getId() == taskId) {
+		for (Task task : taskList) {
+			if (task.getId() == id) {
 				taskMatch = task;
 				break;
 			}
@@ -76,13 +30,53 @@ public class TaskDAO implements TaskInterface {
 	}
 
 	@Override
-	public void update(int id, User updateUser) {
+	public void update(Task updatedTask) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		for (Task task : taskList) {
+			if (task.getId() == updatedTask.getId()) {
+				task.setName(updatedTask.getName());
+				task.setDueDate(updatedTask.getDueDate());
+				break;
+			}
+		}
+	}
+
+	@Override
+	public Set<Task> findAll() {
+		Set<Task> userTask = TaskList.listOfTasks;
+		return userTask;
+	}
+
+	@Override
+	public void delete(int TaskId) {
+		Set<Task> taskList = TaskList.listOfTasks;
+		for (Task task : taskList) {
+			if (task == null) {
+				continue;
+			}
+			if (task.getId() == TaskId) {
+				task.setActive(false);
+				break;
+			}
+		}
+	}
+
+	
+
+	@Override
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void create(User newUser) {
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void create() {
 		// TODO Auto-generated method stub
 		
 	}

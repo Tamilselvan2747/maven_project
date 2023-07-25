@@ -1,21 +1,11 @@
 package in.tamilselvan.doc4you.model;
 
-import java.time.LocalDate;
+public class TaskEntity implements Comparable<TaskEntity> {
 
-public abstract class TaskEntity {
-
-	int id;
 	String name;
-	LocalDate dueDate;
-	boolean isActive;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	String dueDate;
+	boolean isActive = true;
+	int id;
 
 	public String getName() {
 		return name;
@@ -25,11 +15,11 @@ public abstract class TaskEntity {
 		this.name = name;
 	}
 
-	public LocalDate getDueDate() {
+	public String getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDate dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 
@@ -41,23 +31,22 @@ public abstract class TaskEntity {
 		this.isActive = isActive;
 	}
 
-	@Override
-	public String toString() {
-		return "Task [id= " + id + ", name= " + name + ", dueDate= " + dueDate + ", isActive= " + isActive + "]";
+	public int getId() {
+		return id;
 	}
 
-	public int compareTo(Task o) {
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		if (this.getId() == o.getId()) {
-			return 0;
-		} else {
-			if (this.getId() > o.getId()) {
-				return 1;
-			} else {
-				return -1;
-			}
-			// return ( this.getId() > o.getId()) ? 1: -1;
-		}
+	@Override
+	public String toString() {
+		return "Task [name=" + name + ", dueDate=" + dueDate + ", isActive=" + isActive + ", id=" + id + "]";
+	}
+
+	@Override
+	public int compareTo(TaskEntity o) {
+		return Integer.compare(this.id, o.getId());
 	}
 
 }

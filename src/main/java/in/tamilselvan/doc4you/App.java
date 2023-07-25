@@ -10,48 +10,56 @@ import in.tamilselvan.doc4you.service.UserService;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+//		try {
+//			UserService userService = new UserService();
+//
+//			User newUser = new User();
+//			newUser.setId(1234);
+//			newUser.setFirstName("Vignesh");
+//			newUser.setLastName("V");
+//			newUser.setEmail("vv@gmail.com");
+//			newUser.setPassword("vv1234");
+//			newUser.setActive(true);
+//
+//			userService.create(newUser);
+//			userService.getAll();
+//			
+//		} catch (Exception e) {
+//		
+//			e.printStackTrace();
+//		}
 
-		try {
-			UserService userService = new UserService();
-
-			User newUser = new User();
-
-			newUser.setId(12345);
-			newUser.setEmail("inba@gmail.com");
-			newUser.setFirstName("Inba");
-			newUser.setLastName("Lokesh");
-			newUser.setPassword("14");
-			newUser.setActive(true);
-
-			userService.create(newUser);
-			userService.getAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-//		userService.update();
-//		userService.delete();
-//		userService.findUserId(12345);
-
+		//User2
+//		User newUser2 = new User();
+//		newUser2.setId(1235);
+//		newUser2.setFirstName("Hello");
+//		newUser2.setLastName("W");
+//		newUser2.setEmail("hello@gmail.com");
+//		newUser2.setPassword("hello1234");
+//		newUser2.setActive(true);
+		
+//		userDao.create(newUser2);
+		
+	
+		//Task
 		try {
 			TaskService taskService = new TaskService();
+	 		Task newTask = new Task();
+	 		newTask.setId(123);
+	 		newTask.setDueDate("2023-12-24");
+	 		newTask.setName("Task Management");
+	 		newTask.setActive(true);
 
-			Task newTask = new Task();
+			taskService.create(newTask);
+			taskService.getAll();
+		} catch (Exception e) {
 
-			newTask.setId(1233);
-			newTask.setName("abcdedf");
-			LocalDate updateDuedate = LocalDate.of(2023, 8, 19);
-			newTask.setDueDate(updateDuedate);
-
-			newTask.setActive(true);
-			taskService.createTask(newTask);
-			taskService.getAllTask();
-		} catch (ValidationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+     
 	}
-
 }
