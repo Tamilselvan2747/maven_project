@@ -1,5 +1,8 @@
 package in.tamilselvan.doc4you.service;
 
+import java.util.Set;
+
+
 import in.tamilselvan.doc4you.dao.UserDAO;
 
 import in.tamilselvan.doc4you.model.User;
@@ -7,33 +10,40 @@ import in.tamilselvan.doc4you.validation.UserValidator;
 
 public class UserService {
 
-	public User[] getAll() {
-
+	public Set<User> getAll() {
 		UserDAO userDao = new UserDAO();
-		User[] userList = userDao.findAll();
-
-		for (int i = 0; i < userList.length; i++) {
-			System.out.println(userList[i]);
+		Set<User> userList = userDao.findAll();
+		for (User name : userList) {
+			System.out.println(name);
 		}
 		return userList;
 	}
 
+	public User findById(int userId) {
+		UserDAO userDao = new UserDAO();
+		return userDao.findById(userId);
+	}
+
 	public void create(User newUser) throws Exception {
-          UserValidator.validate(newUser);
+		UserValidator.validate(newUser);
 		UserDAO userDao = new UserDAO();
 		userDao.create(newUser);
+	}
+
+	public void update(int id, User updateUser) {
+		UserDAO newUserDao = new UserDAO();
+		newUserDao.update(id, updateUser);
 
 	}
 
-	public void update() {
-		User updateUser = new User();
-
-		UserDAO userDao = new UserDAO();
-		userDao.update(1, updateUser);
+	public void delete(int id) {
+		UserDAO newUserDao = new UserDAO();
+		newUserDao.delete(id);
 	}
-
-	public void delete() {
-
+	
+	public User findByEmailId(String email) {
+		UserDAO newUserDao = new UserDAO();
+		return newUserDao.findByEmailId(email);
 	}
 
 }

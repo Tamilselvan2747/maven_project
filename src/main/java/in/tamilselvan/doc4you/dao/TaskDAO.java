@@ -1,94 +1,90 @@
 package in.tamilselvan.doc4you.dao;
 
 import in.tamilselvan.doc4you.model.Task;
+import in.tamilselvan.doc4you.model.User;
 
-public class TaskDAO {
-	
-	// FIND ALL METHOD
+import java.util.Set;
+import in.tamilselvan.doc4you.interfaces.TaskInterface;
 
-	public Task[] findAll() {	
-		Task[] taskList = TaskList.listOfTasks;
+public class TaskDAO implements TaskInterface {
+
+	public Set<Task> findAll() {
+
+		Set<Task> taskList = TaskList.listOfTasks;
+
 		return taskList;
 	}
-	
-	//   CREATE TASK
-	
-	
-	public void create(Task newTask) {
-				
-		Task[] taskList = TaskList.listOfTasks;
 
-		for(int i=0; i<taskList.length; i++) {
-			
-			Task task = taskList[i];
-			
-			if(task==null) {
-				taskList[i] = newTask;
-				break;
-			}
-			
-		}
+	@Override
+	public void create(Task newTask) {
+
+		Set<Task> list = TaskList.listOfTasks;
+
+		list.add(newTask);
 	}
-	
-	// UPDATE TASK
-	
+
+	@Override
 	public void update(int id, Task updateTask) {
-		
-		Task[] taskList = TaskList.listOfTasks;
-		
-		for(int i=0; i<taskList.length; i++) {
-			
-			Task task = taskList[i];
-			
-			if(task==null) {
-				continue;
-			}
-			if(task.getId()==id) {
-			
-				task.setTaskName(updateTask.getTaskName());
+
+		Set<Task> list = TaskList.listOfTasks;
+
+		for (Task name : list) {
+
+			Task task = name;
+
+			if (task.getId() == id) {
+				task.setName(updateTask.getName());
 				task.setDueDate(updateTask.getDueDate());
 				break;
-				
 			}
-			
 		}
-		
 	}
-	
-	//  DELETE TASK
-	
+
+	@Override
 	public void delete(int id) {
-		
-		Task[] taskList = TaskList.listOfTasks;
-		
-		for(int i=0; i<taskList.length; i++) {
-			
-			Task task = taskList[i];
-			
-			if(task==null) {
-				continue;
-			}
-			
-			if(task.getId()==id) {
+
+		Set<Task> list = TaskList.listOfTasks;
+
+		for (Task name : list) {
+
+			Task task = name;
+
+			if (task.getId() == id) {
 				task.setActive(false);
 				break;
 			}
 		}
-	} 
-	
-	//  FIND BY ID
-	
-	public Task findById(int id) {
-		Task[] taskList = TaskList.listOfTasks;
+	}
+
+	@Override
+	public Task findById(int taskId) {
+
+		Set<Task> taskList = TaskList.listOfTasks;
+
 		Task taskMatch = null;
-	
-		for (int i = 0; i < taskList.length; i++) {
-			Task task = taskList[i];
-			if (task.getId() == id) {
+
+		for (Task name : taskList) {
+
+			Task task = name;
+
+			if (task.getId() == taskId) {
 				taskMatch = task;
 				break;
 			}
 		}
 		return taskMatch;
 	}
+
+	@Override
+	public void update(int id, User updateUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void create(User newUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

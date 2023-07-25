@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.tamilselvan.doc4you.TestCreateTask" time="0.107" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.tamilselvan.doc4you.TestCreateTask" time="0.08" tests="9" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Software\Eclipse_IDE_Workspace\doc4you\target\test-classes;C:\Software\Eclipse_IDE_Workspace\doc4you\target\classes;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="java.class.path" value="C:\Software\Eclipse_IDE_Workspace\doc4you\target\test-classes;C:\Software\Eclipse_IDE_Workspace\doc4you\target\classes;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\mysql\mysql-connector-java\8.0.28\mysql-connector-java-8.0.28.jar;C:\Users\TamilselvanKothandan\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Software\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\TAMILS~1\AppData\Local\Temp\surefire628426231610214734\surefirebooter13373730384531843017.jar C:\Users\TamilselvanKothandan\AppData\Local\Temp\surefire628426231610214734 2023-07-06T18-45-04_292-jvmRun1 surefire9156931026128719217tmp surefire_0169239248646121364tmp"/>
+    <property name="sun.java.command" value="C:\Users\TAMILS~1\AppData\Local\Temp\surefire7888763114687334058\surefirebooter11756393097755948207.jar C:\Users\TamilselvanKothandan\AppData\Local\Temp\surefire7888763114687334058 2023-07-24T10-28-15_953-jvmRun1 surefire15146916669177674749tmp surefire_010837069387287836435tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Software\Eclipse_IDE_Workspace\doc4you\target\test-classes;C:\Software\Eclipse_IDE_Workspace\doc4you\target\classes;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Software\Eclipse_IDE_Workspace\doc4you\target\test-classes;C:\Software\Eclipse_IDE_Workspace\doc4you\target\classes;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\TamilselvanKothandan\.m2\repository\mysql\mysql-connector-java\8.0.28\mysql-connector-java-8.0.28.jar;C:\Users\TamilselvanKothandan\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\TamilselvanKothandan"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\TAMILS~1\AppData\Local\Temp\surefire628426231610214734\surefirebooter13373730384531843017.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\TAMILS~1\AppData\Local\Temp\surefire7888763114687334058\surefirebooter11756393097755948207.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+10"/>
@@ -58,13 +58,26 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateIsPast" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.082"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateFormat" classname="in.tamilselvan.doc4you.TestCreateTask" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateInValid" classname="in.tamilselvan.doc4you.TestCreateTask" time="0"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskNameEmpty" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateInValid" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.03"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateIsPast" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.017"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateFormat" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.002"/>
   <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateEmpty" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.008"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithInvalidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.002"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.021">
+    <failure message="Unexpected exception thrown: in.tamilselvan.doc4you.exception.ValidationException: Invalid date or invalid date format" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.tamilselvan.doc4you.exception.ValidationException: Invalid date or invalid date format
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput(TestCreateTask.java:29)
+Caused by: in.tamilselvan.doc4you.exception.ValidationException: Invalid date or invalid date format
+	at in.tamilselvan.doc4you.service.TaskService.create(TaskService.java:37)
+	at in.tamilselvan.doc4you.TestCreateTask.lambda$testCreateTaskWithValidInput$0(TestCreateTask.java:30)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+</failure>
+  </testcase>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateNull" classname="in.tamilselvan.doc4you.TestCreateTask" time="0"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithInvalidInput" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
+  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskNameEmpty" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
   <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskNameNull" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
-  <testcase name="in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithTaskDueDateNull" classname="in.tamilselvan.doc4you.TestCreateTask" time="0.001"/>
 </testsuite>

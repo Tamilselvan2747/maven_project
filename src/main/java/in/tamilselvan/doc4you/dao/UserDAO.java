@@ -1,91 +1,149 @@
 package in.tamilselvan.doc4you.dao;
 
-import in.tamilselvan.doc4you.model.User;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
-public class UserDAO {
-	public User[] findAll() {
-		User[] userList = UserList.listOfUsers;
+import in.tamilselvan.doc4you.interfaces.UserInterface;
+import in.tamilselvan.doc4you.model.User;
+import in.tamilselvan.doc4you.util.ConnectionUtil;
+
+public class UserDAO implements UserInterface {
+
+	public Set<User> findAll() throws RuntimeException {
+
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Set<User> userList = new HashSet<>();
+
+		try {
+			String query = "select * from users where isActive = 1";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setActive(rs.getBoolean("is_active"));
+
+				userList.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			e.getMessage();
+			throw new RuntimeException();
+
+		} finally {
+			ConnectionUtil.close(con, ps, rs);
+		}
 		return userList;
 	}
-/**
- * 
- * @param newUser
- */
-	public void create(User newUser) {
-//	UserList.listOfUsers[0] = newUser;
-		User[] arr = UserList.listOfUsers;
 
-		for (int i = 0; i < arr.length; i++) {
-			User user = arr[i];
-			if (user == null) {
-				arr[i] = newUser;
-				break;
-
-			}
-
-		}
-	}
-	
 	/**
 	 * 
-	 * @param id
-	 * @param updateUser
+	 * @param newUser
 	 */
+	@Override
+	public void create(User newUser) {
 
+		Set<User> arr = UserList.listOfUsers;
+
+		arr.add(newUser);
+
+	}
+
+	@Override
 	public void update(int id, User updateUser) {
 
-		User[] userList = UserList.listOfUsers;
+		Set<User> arr = UserList.listOfUsers;
+		for (User name : arr) {
 
-		for (int i = 0; i < userList.length; i++) {
+			User user = name;
 
-			User user = userList[i];
-
-			if (user == null) {
-				continue;
-			}
 			if (user.getId() == id) {
 				user.setFirstName(updateUser.getFirstName());
 				user.setLastName(updateUser.getLastName());
-				
+				user.setPassword(updateUser.getPassword());
+				break;
 			}
-
 		}
-
 	}
-	/**
-	 * 
-	 * @param id
-	 */
+
+	@Override
 	public void delete(int id) {
-		User[] userList = UserList.listOfUsers;
-		for (int i = 0; i < userList.length; i++) {
-			User user = userList[i];
-			if (user == null) {
-				continue;
-				
-			}
+		Set<User> arr = UserList.listOfUsers;
+
+		for (User name : arr) {
+
+			User user = name;
+
 			if (user.getId() == id) {
-				user.setActive(false);			
+				user.setActive(false);
+				break;
 			}
 		}
-		
 	}
-	
-	public User findById(int id) {
-		User[] userList = UserList.listOfUsers;
+
+	@Override
+	public User findById(int userId) {
+
+		Set<User> userlist = UserList.listOfUsers;
+
 		User userMatch = null;
-		for (int i = 0; i < userList.length; i++) {
-			User user = userList[i];
-			if (user.getId() == id) {
+		for (User name : userlist) {
+
+			User user = name;
+
+			if (user.getId() == userId) {
 				userMatch = user;
 				break;
-				
 			}
-			
-		}return userMatch;
+		}
+		return userMatch;
 	}
 
-	public void name() {
+	@Override
+	public User findByEmailId(String email) {
+
+		Set<User> arr = UserList.listOfUsers;
+		User userMatch = null;
+		for (User name : arr) {
+			User user = name;
+			if (user.getEmail() == email) {
+				userMatch = user;
+				break;
+			}
+		}
+		return userMatch;
+	}
+
+	@Override
+	public int count() {
+		Set<User> userList = UserList.listOfUsers;
+		return userList.size();
+	}
+
+	@Override
+	public void create(Object object) {
+		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void update(int id, Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 }

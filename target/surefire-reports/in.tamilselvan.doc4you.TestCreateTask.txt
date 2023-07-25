@@ -1,4 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: in.tamilselvan.doc4you.TestCreateTask
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in in.tamilselvan.doc4you.TestCreateTask
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.08 s <<< FAILURE! - in in.tamilselvan.doc4you.TestCreateTask
+in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput()  Time elapsed: 0.021 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.tamilselvan.doc4you.exception.ValidationException: Invalid date or invalid date format
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.tamilselvan.doc4you.TestCreateTask.testCreateTaskWithValidInput(TestCreateTask.java:29)
+Caused by: in.tamilselvan.doc4you.exception.ValidationException: Invalid date or invalid date format
+	at in.tamilselvan.doc4you.service.TaskService.create(TaskService.java:37)
+	at in.tamilselvan.doc4you.TestCreateTask.lambda$testCreateTaskWithValidInput$0(TestCreateTask.java:30)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

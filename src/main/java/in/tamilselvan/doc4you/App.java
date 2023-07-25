@@ -1,84 +1,56 @@
 package in.tamilselvan.doc4you;
 
+import java.time.LocalDate;
+
+import in.tamilselvan.doc4you.exception.ValidationException;
 import in.tamilselvan.doc4you.model.Task;
 import in.tamilselvan.doc4you.model.User;
 import in.tamilselvan.doc4you.service.TaskService;
 import in.tamilselvan.doc4you.service.UserService;
 
-
 public class App {
 
 	public static void main(String[] args) {
-		
-		
-		User newUser = new User();
-		newUser.setId(3);
-		newUser.setFirstName("Uthra");
-		newUser.setLastName("Boopathy");
-		newUser.setEmail("uthra@gmail.com");
-		newUser.setPassword("Uthra@12");
-		newUser.setActive(true);
-		
-		UserService userService;
-		
-		try {
-			userService = new UserService();
 
-			User newUser1 = new User();
-			newUser1.setId(2);
-			newUser1.setFirstName("Ramya");
-			newUser1.setLastName("Boopathy");
-			newUser1.setEmail("ramya@gmail.com");
-			newUser1.setPassword("Uthra@12");
-			newUser1.setActive(true);
-			
+		try {
+			UserService userService = new UserService();
+
+			User newUser = new User();
+
+			newUser.setId(12345);
+			newUser.setEmail("inba@gmail.com");
+			newUser.setFirstName("Inba");
+			newUser.setLastName("Lokesh");
+			newUser.setPassword("14");
+			newUser.setActive(true);
+
 			userService.create(newUser);
-		
+			userService.getAll();
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
 
-		
-//		userService.create(newUser1);
-		
-		User updateUser = new User();
-		updateUser.setId(2);
-		updateUser.setFirstName("Ramya");
-		updateUser.setLastName("Boopathy");
-		updateUser.setEmail("ramys@gmail.com");
-		updateUser.setPassword("Uthra@12");
-		updateUser.setActive(true);
-		
-		
-//		userService.update(2, updateUser);
-//		
-//		userService.getAll();
-//		
-		
-		////////////////    FOR TASK   ////////////
-		
-		
-		TaskService taskService;
+//		userService.update();
+//		userService.delete();
+//		userService.findUserId(12345);
 
 		try {
-			taskService = new TaskService();
-			
+			TaskService taskService = new TaskService();
+
 			Task newTask = new Task();
-			newTask.setId(1);
-			newTask.setTaskName("Rc");
-			newTask.setDueDate("01.10.2023");
+
+			newTask.setId(1233);
+			newTask.setName("abcdedf");
+			LocalDate updateDuedate = LocalDate.of(2023, 8, 19);
+			newTask.setDueDate(updateDuedate);
+
 			newTask.setActive(true);
-
-			taskService.create(newTask);
-			taskService.getAll();
-
-
-		} catch (Exception e) {
-		
+			taskService.createTask(newTask);
+			taskService.getAllTask();
+		} catch (ValidationException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
 	}
 
